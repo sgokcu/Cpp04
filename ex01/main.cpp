@@ -22,12 +22,14 @@ int main()
     }
     std::cout << "*************************************************" << std::endl;
     {
-        Dog* j = new Dog();
+        Dog* j = new Dog("hello");
         Dog* i = new Dog();
 
-        i = j;
+        *j = *i;
         j->printIdeas();
         i->printIdeas();
+        delete i;
+        delete j;
     }
 
 }

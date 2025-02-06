@@ -15,10 +15,12 @@ Brain& Brain::operator=(const Brain& copy)
 {
     std::cout << "copy assigment operator called for Brain." << std::endl;
     if(this != &copy)
-        for(int i = 0; i <= 100; i++)
+    {
+        for(int i = 0; i < 100; i++)
         {
             this->ideas[i] = copy.getIdeas(i);
         }
+    }
     return *this;
 }
 
