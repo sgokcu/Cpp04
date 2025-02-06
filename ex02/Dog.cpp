@@ -8,18 +8,27 @@ Dog::Dog()
         brain->setIdeas("I'm a Dog <3", i);
     std::cout << type << ": default constructor called for Dog." << std::endl;
 }
-
-Dog::Dog(const Dog& other)
+Dog::Dog(const std::string& idea)
 {
-	type = other.type;
-	brain = new Brain();
-	*brain = *other.brain;
+    this->type = "Dog";
+    brain = new Brain();
+    for(int i = 0; i < 100; i++)
+        brain->setIdeas(idea, i);
+    std::cout << type << ": default constructor called for Dog." << std::endl;
 }
 
-Dog& Dog::operator=(const Dog& other)
+
+Dog::Dog(const Dog& copy)
 {
-	type = other.type;
-	*brain = *other.brain;
+	type = copy.type;
+	brain = new Brain();
+	*brain = *copy.brain;
+}
+
+Dog& Dog::operator=(const Dog& copy)
+{
+	type = copy.type;
+	*brain = *copy.brain;
 	return *this;
 }
 
@@ -42,5 +51,5 @@ std::string Dog::getType() const
 void Dog::printIdeas(void) const
 {
 	for (int i = 0; i < 100; i++)
-		std::cout << brain->getIdeas(i) << std::endl;
+		std::cout << i + 1 << "=> " <<brain->getIdeas(i) << std::endl;
 }

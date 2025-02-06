@@ -8,6 +8,7 @@ Dog::Dog()
         brain->setIdeas("I'm a Dog <3", i);
     std::cout << type << ": default constructor called for Dog." << std::endl;
 }
+
 Dog::Dog(const std::string& idea)
 {
     this->type = "Dog";

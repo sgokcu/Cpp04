@@ -13,6 +13,7 @@ protected:
     std::string type;
 public:
     Cat();
+    Cat(const std::string& idea);
     Cat(const Cat& copy);
     Cat& operator=(const Cat& copy);
     ~Cat();

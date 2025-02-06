@@ -9,17 +9,26 @@ Cat::Cat()
     std::cout << type << ": default constructor called for Cat." << std::endl;
 }
 
-Cat::Cat(const Cat& other)
+Cat::Cat(const std::string& idea)
 {
-	type = other.type;
-	brain = new Brain();
-	*brain = *other.brain;
+    this->type = "Cat";
+    brain = new Brain();
+    for(int i = 0; i < 100; i++)
+        brain->setIdeas(idea, i);
+    std::cout << type << ": default constructor called for Cat." << std::endl;
 }
 
-Cat& Cat::operator=(const Cat& other)
+Cat::Cat(const Cat& copy)
 {
-	type = other.type;
-	*brain = *other.brain;
+	type = copy.type;
+	brain = new Brain();
+	*brain = *copy.brain;
+}
+
+Cat& Cat::operator=(const Cat& copy)
+{
+	type = copy.type;
+	*brain = *copy.brain;
 	return *this;
 }
 
@@ -41,5 +50,5 @@ std::string Cat::getType() const
 void Cat::printIdeas(void) const
 {
 	for (int i = 0; i < 100; i++)
-		std::cout << brain->getIdeas(i) << std::endl;
+		std::cout << i + 1 << "=> " <<brain->getIdeas(i) << std::endl;
 }

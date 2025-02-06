@@ -13,6 +13,7 @@ protected:
     std::string type;
 public:
     Dog();
+    Dog(const std::string& idea);
     Dog(const Dog& copy);
     Dog& operator=(const Dog& copy);
     ~Dog();
